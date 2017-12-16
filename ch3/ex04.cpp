@@ -13,18 +13,15 @@ int main() {
 
     int day, hour, minute, second;
 
-    day = input_second / second_to_minute / minute_to_hour / hour_to_day;
-    hour = (input_second / second_to_minute / minute_to_hour) % hour_to_day;
+    day    = input_second / second_to_minute / minute_to_hour / hour_to_day;
+    hour   = (input_second / second_to_minute / minute_to_hour) % hour_to_day;
     minute = (input_second / second_to_minute) % minute_to_hour;
-    second = input_second % minute_to_hour;
+    second = input_second % second_to_minute;
 
     cout << input_second << " seconds = "
         << day << " days, "
         << hour << " hours, "
         << minute << " minutes, "
         << second << " seconds" << endl;
-
-
-
     return 0;
 }

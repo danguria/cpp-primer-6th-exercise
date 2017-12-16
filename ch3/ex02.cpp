@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <cmath> // sqrt
 using namespace std;
 
 int main() {
@@ -10,7 +10,9 @@ int main() {
     int h_foot, h_inch, w_pound;
 
     cout << "Enter your height in feet and inches(seperated by spaces): ";
-    cin >> h_foot; cin >> h_inch;
+    // 12 32
+    cin >> h_foot; // 12
+    cin >> h_inch; // 32
 
     cout << "Enter your weight in pounds: ";
     cin >> w_pound;
@@ -18,7 +20,7 @@ int main() {
     double h_meter = (h_foot * foot_to_inch + h_inch) * inch_to_meter;
     double w_kilometer = w_pound / pound_to_kilogram;
 
-    double bmi = w_kilometer / sqrt(h_meter);
+    double bmi = w_kilometer / (h_meter * h_meter);
 
     cout << "Your BMI is " << bmi << endl;
 
