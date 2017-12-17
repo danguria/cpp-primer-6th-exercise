@@ -151,10 +151,20 @@ void string_size() {
 void strings() {
 
     char str2[] = {'E', 'n', 't', 'e', 'r', '\0'}; // \n
-    char str3[] = "Enter";
+    char str3[] = "E";
+    cin >> str3; // andy -> an? a\0
+
+    
+    cout << str3[0] << str3[1] << str3[2] << str3[3]<< endl;
     cout << str3 << endl;
-    cout << str2 << endl; // error,
-    cout << str2[0] << endl; // not 'E', 99
+
+    char str4[100];  // andy
+    cin >> str4;
+    cout << str4 << endl;
+
+    char str5[] = "hi";
+    char str6[] = "taekyoon";
+    
 
     // C-style string -- using array of char must end with '\0' null character
     //char str1[8] = { 'b', 'e', 'a', 'u', 'x', ' ', 'I', "I" }; // error, not a string
@@ -169,6 +179,27 @@ void strings() {
     
     // C++-style string -- using class string
 
+    string str10;
+    char str11[] = "test"; // { 't', 'e', 's', 't' , '\0' }
+   
+
+    string str10 = "test1"; // x
+    string str11("test2");
+
+    string str12;
+
+    str12 = str10 + str11; // test1test2
+    str12 = str10 - str11; // error
+    str12[0]; // t
+    str12[0] = 'a'; // aest1test2
+
+
+
+    char str[] = "test1";
+    char str2[] = "test2 test3";
+    str + str2; // test1test2 test3
+
+    int x = 1;
 }
 
 void array_init() {

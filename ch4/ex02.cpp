@@ -6,6 +6,7 @@ int main() {
     cout << "What is your first name? ";
     string first_name;
     getline(cin, first_name);
+    //cin.getline(first_name, 100); 
     
     cout << "What is your last name? ";
     string last_name;
