@@ -1,26 +1,11 @@
 #include <iostream>
 using namespace std;
 
-void show_board(int player, int pos) {
-    char board[] = "123456789";
-    if (player == 1) {
-        // pos = 1
-        board[pos - 1] = 'O';
-    } else { // player == 2
-        board[pos - 1] = 'X';
-    }
-
-    cout << "-------------" << endl;
-    cout << "| " << board[0] << " | " << board[1] << " | " << board[2] << " |" << endl;
-    cout << "-------------" << endl;
-    cout << "| " << board[3] << " | " << board[4] << " | " << board[5] << " |" << endl;
-    cout << "-------------" << endl;
-    cout << "| " << board[6] << " | " << board[7] << " | " << board[8] << " |" << endl;
-    cout << "-------------" << endl;
-}
-
 void draw_title() {
-    // just draw the title
+    cout << "==========================" << endl;
+    cout << "       TIC TAC TOE" << endl;
+    cout << "Player1 : O   Player2 : X" << endl;
+    cout << "==========================" << endl << endl;
 }
 
 void draw_board(char *board) {
@@ -58,6 +43,14 @@ int get_position(char *board, int turn) {
     return pos;
 }
 
+// return 1 if player1 win
+// return 2 if player2 win
+// return 3 if draw
+// return 4 otherwise
+int check_winner(char* board) {
+    return 0;
+}
+
 int main() {
 
     // initial state
@@ -71,8 +64,19 @@ int main() {
         int pos = get_position(board, turn);
         board[pos-1] = marks[turn];
         draw_board(board);
-        if (turn == 1) turn = 2;
-        else  turn = 1;
+
+        int winner = check_winner(board);
+        if (winner == 1 || winner == 2) { // p1 win
+            cout << "Player" << winner << " win the game!" << endl;
+            break;
+        } else if (winner == 3) { // d
+            cout << "Draw the game!" << endl;
+            break;
+        } else {
+            if (turn == 1) turn = 2;
+            else  turn = 1;
+        }
+
     }
 
     // 1. ask player1 or player2 to enter a position using "get_position" function - done
