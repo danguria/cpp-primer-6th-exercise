@@ -61,17 +61,26 @@ int main() {
     char board[] = "123456789";
     draw_title();
     draw_board(board);
-    
-    int turn = 1;
 
-    while (true) {
+    int turn = 1;
+    while (1) {
+        int pos = get_position(board, turn);
+        if (turn == 1)
+            board[pos-1] = 'O';
+        else if (turn == 2)
+            board[pos-1] = 'X';
+
+        draw_board(board);
+        if (turn == 1) turn = 2;
+        else  turn = 1;
+    }
+
     // 1. ask player1 or player2 to enter a position using "get_position" function
     // 2. mark O or X to the board at the position using "mark" function
     // 3. re-draw the board using "draw_board" function
     // 4. change the turn - use a variable that remember current turn
         //turn = 2;
     // 5. repeat 1, 2, and 3 using while loop
-    }
 
     return 0;
 }
