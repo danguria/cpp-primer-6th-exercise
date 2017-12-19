@@ -3,7 +3,6 @@
 #include <string> // for string class
 using namespace std;
 
-
 void array_of_structure() {
     
     struct student {
