@@ -35,52 +35,54 @@ void draw_board(char *board) {
 }
 
 bool is_marked(char* board, int pos) {
-    // return true if the position was already marked
-    // return false otherwise
+    if (board[pos-1] == 'O' || board[pos-1] == 'X') 
+        return true;
     return false;
 }
 
-int get_position(char *board, int turn) {
-
-    // 1. print a message "Player(1 or 2)'s turn"
-    // 2. print a message "Enter a position you wan to mark: "
-    // 3. get the user input
-    // 4. return position if the position hasn't been marked
-    // 5. ask again otherwise
-    // hint: 4 and 5 can be implemented by "is_marked" function and while loop
-    return 0;
+bool is_out_of_board(int pos) {
+    return pos < 0 || 9 < pos;
 }
 
-void mark(char *board, int turn, int pos) {
-    // just put O or X to the board at the position
+int get_position(char *board, int turn) {
+    cout << "Player" << turn << "'s turn" << endl;
+    cout << "Enter a position you want to mark: " << endl;
+
+    int pos;
+    cin >> pos;
+    while (is_out_of_board(pos) || is_marked(board, pos)) {
+        cout << "invalid position, select another position: ";
+        cin >> pos;
+    }
+
+    return pos;
 }
 
 int main() {
 
     // initial state
     char board[] = "123456789";
+    char marks[3] = {'?', 'O', 'X'};
     draw_title();
     draw_board(board);
 
     int turn = 1;
     while (1) {
         int pos = get_position(board, turn);
-        if (turn == 1)
-            board[pos-1] = 'O';
-        else if (turn == 2)
-            board[pos-1] = 'X';
-
+        board[pos-1] = marks[turn];
         draw_board(board);
         if (turn == 1) turn = 2;
         else  turn = 1;
     }
 
-    // 1. ask player1 or player2 to enter a position using "get_position" function
-    // 2. mark O or X to the board at the position using "mark" function
-    // 3. re-draw the board using "draw_board" function
-    // 4. change the turn - use a variable that remember current turn
-        //turn = 2;
-    // 5. repeat 1, 2, and 3 using while loop
+    // 1. ask player1 or player2 to enter a position using "get_position" function - done
+    // 2. mark O or X to the board at the position using "mark" function - done
+    // 3. re-draw the board using "draw_board" function - done
+    // 4. change the turn - use a variable that remember current turn - done
+    // 5. repeat 1, 2, 3, and 4 using while loop until the game finishes
+    // 6. ask players to restart the game
+    //   6.1 if playser type "Y or y", then do 1 ~ 5
+    //   6.2 otherwise, terminate the program
 
     return 0;
 }
