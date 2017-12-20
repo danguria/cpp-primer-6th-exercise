@@ -1,6 +1,37 @@
 #include <iostream>
 using namespace std;
 
+// using pointers to string
+void pointer_string() {
+
+    char animal[20] = "bear";   // animal holds bear
+    const char* bird = "wren";  // bird holds address of string
+    char* ps;                 // uninitialized
+
+    cout << animal << " and " << bird << endl;
+    // cout << ps << endl; // may display garbage, may cause a crash
+
+    cout << "Enter a kind of animal: ";
+    cin >> animal;  // ok if inpu < 20 characters
+    // cin >> ps    // runtime error, ps doesn't point to allocated space
+
+    ps = animal;    // set ps to point to string
+    cout << ps << endl; // display same string of animal;
+
+    cout << "Before using strcpy()" << endl;
+    cout << animal << " at " << (int*)animal << endl;
+    cout << ps << " at " << (int*)ps << endl;
+
+    ps = new char[strlen(animal) + 1]; // get new memory
+    strcpy(ps, animal); // copy string to new memory
+
+    cout << "After using strcpy()" << endl;
+    cout << animal << " at " << (int*)animal << endl;
+    cout << ps << " at " << (int*)ps << endl;
+
+    delete [] ps;
+
+}
 
 // pointer addition
 void add_pointer() {
@@ -50,7 +81,7 @@ void free_memory_with_delete() {
     int *ptr = new int; // allocate memory with new
 
     // use the memory
-    delete ps; // free memory with delete when done
+    delete ptr; // free memory with delete when done
 }
 
 void out_of_memory() {
@@ -123,6 +154,6 @@ void address() {
 }
 
 int main() {
-    out_of_memory();
+    pointer_string();
     return 0;
 }

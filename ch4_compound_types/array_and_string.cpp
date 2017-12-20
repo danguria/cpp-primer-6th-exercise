@@ -3,65 +3,6 @@
 #include <string> // for string class
 using namespace std;
 
-void array_of_structure() {
-    
-    struct student {
-        string name;
-        int id;
-    };
-
-    student stds [3] = {
-        { "kim", 1 },
-        { "lee", 2 }
-    };
-
-    cout << stds[0].name << endl;
-    cout << stds[0].id << endl;
-    cout << stds[1].name << endl;
-    cout << stds[1].id << endl;
-    cout << stds[2].name << endl;
-    cout << stds[2].id << endl;
-}
-
-struct point2D {
-    int x;
-    int y;
-};
-
-struct point2D rotate_point2D(int x, int y) {
-    struct point2D point; 
-
-    point.x = 4;
-    point.y = 1;
- 
-    // how about caller??? let him code it
-    return point;
-}
-
-/*
-???? rotate_point2D(int x, int y) {
-    int rx, ry;
-    // ... there are some operations here
-
-    return rx, ry; // how to return more than one variables????
-}
-*/
-
-void struct_declaration() {
-    struct student {
-        string name;
-        int birth_year;
-        int id;
-    };
-
-    struct student sk;
-    sk.name = "kim";
-    sk.birth_year= 2000;
-    sk.id = 100;
-
-    student tk = { "tae", 2000, 100 };  // be carefull ordering
-}
-
 void assignment_concatenation_appending() {
     char str1[] = "str1";
     char str2[20];
@@ -85,7 +26,7 @@ void stringclass() {
 
     string str1;
     string str2 = "panther";
-    string str3 = {"danguria"};
+    //string str3 = {"danguria"};
     string str4 {"hello"};
     string str5("hi, there");
 
@@ -170,35 +111,33 @@ void strings() {
     //char str2[8] = { 'f', 'a', 't', 'e', 's', 's', 'a', '\0' }; // a string!
    
     //char str3[11] = "Mr. Cheeps"; // the \0 is understood
-    char str4[] = "Bubbles";      // let the compiler count
+    char str7[] = "Bubbles";      // let the compiler count
 
-    char str5[8] = "bozo";          // b o z o \0 \0 \0 \0
+    char str8[8] = "bozo";          // b o z o \0 \0 \0 \0
 
     //char str6 = "s"; // illegal type mismatch
     
     // C++-style string -- using class string
 
-    string str10;
-    char str11[] = "test"; // { 't', 'e', 's', 't' , '\0' }
+    string str9;
+    char str10[] = "test"; // { 't', 'e', 's', 't' , '\0' }
    
 
-    string str10 = "test1"; // x
-    string str11("test2");
+    string str11 = "test1"; // x
+    string str12("test2");
 
-    string str12;
+    string str13;
 
-    str12 = str10 + str11; // test1test2
-    str12 = str10 - str11; // error
-    str12[0]; // t
-    str12[0] = 'a'; // aest1test2
+    str13 = str11 + str12; // test1test2
+    //str13 = str11 - str12; // error
+    str13[0]; // t
+    str13[0] = 'a'; // aest1test2
 
 
 
-    char str[] = "test1";
-    char str2[] = "test2 test3";
-    str + str2; // test1test2 test3
-
-    int x = 1;
+    char str14[] = "test1";
+    char str15[] = "test2 test3";
+    //str14 + str15; // error,
 }
 
 void array_init() {

@@ -20,7 +20,7 @@ void draw_board(char *board) {
 }
 
 bool is_marked(char* board, int pos) {
-    if (board[pos-1] == 'O' || board[pos-1] == 'X') 
+    if (board[pos-1] == 'O' || board[pos-1] == 'X')
         return true;
     return false;
 }
@@ -43,12 +43,42 @@ int get_position(char *board, int turn) {
     return pos;
 }
 
+bool check_winner(char* board, int player) {
+    char mark = player == 1? 'O' : 'X';
+
+    // horizontal lines
+    if (board[0] == mark && board[1] == mark && board[2] == mark) return true;
+    if (board[3] == mark && board[4] == mark && board[5] == mark) return true;
+    if (board[6] == mark && board[7] == mark && board[8]) return true;
+
+    // vertical lines
+    if (board[0] == mark && board[3] == mark && board[6] == mark) return true;
+    if (board[1] == mark && board[4] == mark && board[7] == mark) return true;
+    if (board[2] == mark && board[5] == mark && board[8] == mark) return true;
+
+    // diagonal lines
+    if (board[0] == mark && board[4] == mark && board[8] == mark) return true;
+    if (board[2] == mark && board[4] == mark && board[6] == mark) return true;
+
+    return false;
+}
 // return 1 if player1 win
 // return 2 if player2 win
 // return 3 if draw
 // return 4 otherwise
 int check_winner(char* board) {
-    return 0;
+    if (check_winner(board, 1)) return 1;
+    if (check_winner(board, 2)) return 2;
+
+    int remaings = 0;
+    for (int i = 0; i < 9; i++)
+        if (board[i] != 'O' && board[i] != 'X')
+            remaings++;
+
+    // draw
+    if (remaings == 0) return 3;
+    // otherwise
+    return 4;
 }
 
 int main() {
@@ -76,14 +106,13 @@ int main() {
             if (turn == 1) turn = 2;
             else  turn = 1;
         }
-
     }
 
     // 1. ask player1 or player2 to enter a position using "get_position" function - done
     // 2. mark O or X to the board at the position using "mark" function - done
     // 3. re-draw the board using "draw_board" function - done
     // 4. change the turn - use a variable that remember current turn - done
-    // 5. repeat 1, 2, 3, and 4 using while loop until the game finishes
+    // 5. repeat 1, 2, 3, and 4 using while loop until the game finishes 
     // 6. ask players to restart the game
     //   6.1 if playser type "Y or y", then do 1 ~ 5
     //   6.2 otherwise, terminate the program
