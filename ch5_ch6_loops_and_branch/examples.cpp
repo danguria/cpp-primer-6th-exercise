@@ -5,6 +5,30 @@ using namespace std;
 // see the chapter review 2, 3, 4, 5, 6,
 // exercise 1, 3, 4, 8, 10
 
+void break_continue() {
+    const int size = 80;
+    char line[size];
+    int spaces = 0;
+    
+    cout << "Enter a line of text:" << endl;
+    cin.get(line, size);
+    cout << "Complete line:" << endl;
+    cout << line << endl;
+    
+    cout << "Line through first period:" << endl;
+   
+    for (int i = 0; line[i] != '\0'; i++) {
+        cout << line[i]; // display character
+        if (line[i] == '.') // quit if it's a period
+            break;
+        
+        if (line[i] != ' ') // skip rest of loop
+            continue;
+       
+        spaces++;
+    }
+    cout << "\n" << spaces << " spaces\n"; cout << "Done.\n";
+}
 
 void nested_loop() {
     int matrix[2][2] = 
@@ -103,7 +127,7 @@ void whileloop_basic() {
     }
 }
 
-void boolean_expression() {
+void boolean_expression_and_branch() {
     // ==, <, >, <=, >=,
     // ! (not)
     
@@ -197,15 +221,14 @@ void boolean_expression() {
         cout << "y = " << y;
 
     // variable scope
-    int x = 1;
-    int y = 1;
-    int z;
+    x = 1;
+    y = 1;
     if (x == y) 
     {
-        z = x + y;
+        int z = x + y;
     }
     
-    cout << "x + y = " << z << endl; // ??
+    //cout << "x + y = " << z << endl; // ??
     
 
     bool is_there_line;
@@ -225,9 +248,6 @@ void boolean_expression() {
 
 int main() 
 {
-    int x;
-    x = 1;
-
-    x = x + 1;
+    break_continue();
     return 0;
 }
