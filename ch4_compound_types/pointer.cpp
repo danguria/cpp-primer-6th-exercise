@@ -104,7 +104,7 @@ void pointer_danger() {
     int *ptr;
 
     //ptr = 12345; // what is this mean?
-    ptr = (int*) 1234; // what is it now?
+    ptr = (int*)1234; // what is it now?
 
     cout << *ptr << endl; // what happen?
 
@@ -115,7 +115,7 @@ void init_ptr() {
     int x = 5;
     int* pt = &x;
 
-    int* px, py; // is py a pointer? or ordinary varieble?
+    int* px, py; // is py a pointer? or ordinary variable?
 }
 
 
@@ -154,6 +154,7 @@ void address() {
 }
 
 int main() {
-    pointer_string();
+
+    pointer_danger();
     return 0;
 }

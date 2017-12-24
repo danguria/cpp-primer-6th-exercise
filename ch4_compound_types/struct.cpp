@@ -27,8 +27,8 @@ struct point2D {
     int y;
 };
 
-struct point2D rotate_point2D(int x, int y) {
-    struct point2D point; 
+point2D rotate_point2D(int x, int y) {
+    point2D point; 
 
     point.x = 4;
     point.y = 1;
@@ -37,26 +37,35 @@ struct point2D rotate_point2D(int x, int y) {
     return point;
 }
 
-/*
-???? rotate_point2D(int x, int y) {
+??? rotate_point2D(int x1, string y1) {
     int rx, ry;
+    string str;
     // ... there are some operations here
 
-    return rx, ry; // how to return more than one variables????
+    return rx, str; // how to return more than one variables????
 }
-*/
 
 void struct_declaration() {
-    struct student {
+
+
+    struct student 
+    {
         string name;
         int birth_year;
         int id;
     };
 
+
+
+    int x;
     struct student sk;
+
     sk.name = "kim";
     sk.birth_year= 2000;
     sk.id = 100;
+
+    cout << sk.name << endl;
+
 
     student tk = { "tae", 2000, 100 };  // be carefull ordering
 }
