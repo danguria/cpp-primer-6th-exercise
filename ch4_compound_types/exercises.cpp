@@ -129,6 +129,8 @@ void ex07() {
 
     cout << "Enter the company name: ";
     cin >> pizza.company;
+    // getline(cin, pizza.company);
+    // cin.getline(pizza.company, 20);
 
     cout << "Enter the diameter: ";
     cin >> pizza.diameter;

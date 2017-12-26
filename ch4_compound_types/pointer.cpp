@@ -1,6 +1,53 @@
 #include <iostream>
 using namespace std;
 
+
+char* getname() {
+    char temp[80];
+    cout << "Enter last name: ";
+    cin >> temp;
+    char* pn = new char[strlen(temp) + 1];
+    strcpy(pn, temp);
+
+    return pn;
+}
+
+// using the delete operator
+void delete_ex() {
+    char* name;
+    
+    name = getname();
+    cout << name << " at " << (int*) name << endl;
+    delete [] name;
+
+    name = getname();
+    cout << name << " at " << (int*) name << endl;
+    delete [] name;
+
+}
+
+// using new with a structure
+void newstruct() {
+    struct inflatable
+    {
+        char name[20];
+        float volume;
+        double price;
+    };
+
+    inflatable* ps = new inflatable;
+    cout << "Enter name of inflatable item: ";
+    cin.get(ps->name, 20);
+    cout << "Enter volume in cubic feet: ";
+    cin >> (*ps).volume;
+    cout << "Enter price: $:";
+    cin >> ps->price;
+    cout << "Name: " << (*ps).name << endl;
+    cout << "Volume: " << ps->volume << " cubic feet" << endl;
+    cout << "Price: $" << ps->price << endl;
+    delete ps;
+}
+
 // using pointers to string
 void pointer_string() {
 
@@ -92,10 +139,12 @@ void out_of_memory() {
 
 // using the new operator
 void use_new() {
-    int *ptr = new int; // allocate space for an int
+    int x;
+    int* ptr = new int; // allocate space for an int
+        
     *ptr = 1001; // store a value there
 
-    cout << "address of ptr = " << ptr << endl;
+    cout << "address of ptr = " << ptr << endl; 
     cout << "value of ptr = " << *ptr << endl;
     cout << "size of ptr = " << sizeof(ptr) << endl;
 }
@@ -107,7 +156,6 @@ void pointer_danger() {
     ptr = (int*)1234; // what is it now?
 
     cout << *ptr << endl; // what happen?
-
 }
 
 // initialize a pointer
@@ -155,6 +203,6 @@ void address() {
 
 int main() {
 
-    pointer_danger();
+    use_new();
     return 0;
 }
