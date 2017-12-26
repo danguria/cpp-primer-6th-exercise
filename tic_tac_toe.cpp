@@ -13,13 +13,15 @@ void draw_title() {
 void draw_board(char board[][size_board]) {
     // TODO: tk
     // just draw current board
-    cout << "-------------" << endl;
-    cout << "| " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " |" << endl;
-    cout << "-------------" << endl;
-    cout << "| " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << " |" << endl;
-    cout << "-------------" << endl;
-    cout << "| " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << " |" << endl;
-    cout << "-------------" << endl;
+
+    cout << " -------------" << endl;
+    for (int i = 0; i < size_board; i++) {
+        for (int j = 0; j < size_board; j++) {
+            cout << " | " << board[i][j];
+        }
+        cout << " |" << endl;
+        cout << " -------------" << endl;
+    }
 }
 
 bool is_marked(char board[][size_board], int pos) {
@@ -53,18 +55,49 @@ bool check_winner(char board[][size_board], int player) {
     char mark = player == 1? 'O' : 'X';
 
     // horizontal lines
-    if (board[0][0] == mark && board[0][1] == mark && board[0][2] == mark) return true;
-    if (board[1][0] == mark && board[1][1] == mark && board[1][2] == mark) return true;
-    if (board[2][0] == mark && board[2][1] == mark && board[2][2]) return true;
+    for (int i = 0; i < size_board; i++) {
+        bool win = true;
+        for (int j = 0; j < size_board; j++) {
+            if (board[i][j] != mark) { 
+                win = false;
+                break;
+            }
+        }
+        if (win) return true;
+    }
 
     // vertical lines
-    if (board[0][0] == mark && board[1][0] == mark && board[2][0] == mark) return true;
-    if (board[0][1] == mark && board[1][1] == mark && board[2][1] == mark) return true;
-    if (board[0][2] == mark && board[1][2] == mark && board[2][2] == mark) return true;
+    for (int j = 0; j < size_board; j++) {
+        bool win = true;
+        for (int i = 0; i < size_board; i++) {
+            if (board[i][j] != mark) { 
+                win = false;
+                break;
+            }
+        }
+        if (win) return true;
+    }
 
     // diagonal lines
-    if (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) return true;
-    if (board[2][0] == mark && board[1][1] == mark && board[0][2] == mark) return true;
+    bool win = true;
+    for (int i = 0, j = 0; i < size_board; i++, j++) {
+        if (board[i][j] != mark) {
+            win = false;
+            break;
+        }
+    }
+    if (win) return true;
+   
+    win = true;
+    int i = 0, j = 2;
+    while (i < size_board && j >= 0) {
+        if (board[i][j] != mark) {
+            win = false;
+            break;
+        }
+        i++; j--;
+    }
+    if (win) return true;
 
     return false;
 }
