@@ -118,6 +118,7 @@ void ex06() {
     cout << "calories: " << snacks[2].calories << endl << endl;
 
 }
+
 void ex07() {
     struct Pizza {
         string company;
@@ -142,7 +143,81 @@ void ex07() {
     cout << "diameter: " << pizza.diameter << endl;
     cout << "weight: " << pizza.weight << endl;
 }
+
+void ex08() {
+    struct Pizza {
+        string company;
+        double diameter;
+        double weight;
+    };
+
+    Pizza *pizza = new Pizza;
+
+    cout << "Enter the diameter: ";
+    cin >> pizza->diameter;
+
+    cout << "Enter the company name: ";
+    cin >> pizza->company;
+    // getline(cin, pizza.company);
+    // cin.getline(pizza.company, 20);
+
+    cout << "Enter the weight: ";
+    cin >> pizza->weight;
+
+    cout << "company: " << pizza->company << endl;
+    cout << "diameter: " << pizza->diameter << endl;
+    cout << "weight: " << pizza->weight << endl;
+}
+
+void ex09() {
+    struct CandyBar {
+        string name;
+        double weight;
+        int calories;
+    };
+
+    CandyBar *snacks = new CandyBar[3];
+    snacks[0].name = "Mocha Munch";
+    snacks[0].weight = 2.3;
+    snacks[0].calories = 350;
+    snacks[1].name = "Vanilla";
+    snacks[1].weight = 3.2;
+    snacks[1].calories = 400;
+    snacks[2].name = "Chocholate";
+    snacks[2].weight = 4.0;
+    snacks[2].calories = 222;
+
+    cout << "name: " << snacks[0].name << endl;
+    cout << "weight: " << snacks[0].weight << endl;
+    cout << "calories: " << snacks[0].calories << endl << endl;
+
+    cout << "name: " << snacks[1].name << endl;
+    cout << "weight: " << snacks[1].weight << endl;
+    cout << "calories: " << snacks[1].calories << endl << endl;
+
+    cout << "name: " << snacks[2].name << endl;
+    cout << "weight: " << snacks[2].weight << endl;
+    cout << "calories: " << snacks[2].calories << endl << endl;
+
+}
+
+void ex10() {
+    double array[3];
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Enter 40-yd dash of " << i + 1 << " : ";
+        cin >> array[i];
+    }
+
+    double sum = 0;
+    for (int i = 0; i < 3; i++) {
+        sum += array[i];
+    }
+
+    cout << "average : " << sum / 3 << endl;
+}
+
 int main() {
-    ex01();
+    ex10();
     return 0;
 }
