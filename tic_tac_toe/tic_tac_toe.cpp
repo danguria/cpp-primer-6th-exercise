@@ -125,7 +125,6 @@ int check_winner(char board[][size_board]) {
 
 int main() {
 
-
     int turn = 1;
     while (1) {
         char board[size_board][size_board];

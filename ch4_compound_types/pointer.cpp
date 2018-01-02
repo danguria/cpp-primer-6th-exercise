@@ -110,10 +110,11 @@ void arraynew() {
     cout << "value of ptr = " << *ptr << endl;
     ptr = ptr + 1;
     cout << "value of ptr = " << *ptr << endl;
-    ptr = ptr + 1;
+    ptr = ptr + 2;
     cout << "value of ptr = " << *ptr << endl;
     ptr = ptr + 1;
     cout << "value of ptr = " << *ptr << endl;
+
 }
 
 void becarefull_with_delete() {
@@ -127,8 +128,15 @@ void becarefull_with_delete() {
 void free_memory_with_delete() {
     int *ptr = new int; // allocate memory with new
 
+    *ptr = 1;
+    cout << "before delete" << endl;
+    cout << *ptr << endl;
+    
+    
+    cout << "after delete" << endl;
     // use the memory
     delete ptr; // free memory with delete when done
+    cout << *ptr << endl;
 }
 
 void out_of_memory() {
@@ -203,6 +211,6 @@ void address() {
 
 int main() {
 
-    use_new();
+    free_memory_with_delete();
     return 0;
 }

@@ -1,6 +1,37 @@
 #include <iostream>
 using namespace std;
 
+void temp() {
+    int arr[5]; // int*
+
+}
+
+
+
+void keyboardCallback() {
+    cout << "hi" << endl;
+}
+
+int factorial(int x) {
+    if (x > 1) {
+        return x * factorial(x-1);
+    } else if (x == 1) {
+        return x;
+    } else {
+        // invalid input
+    }
+}
+
+int iterative_factorial(int x) {
+    int answer = 1;
+    for (int i = 1; i <= x; i++) {
+        answer = answer * i;
+    }
+    return answer;
+}
+
+
+
 void ex1_forloop() {
     int sum = 0;
     for (int cnt = 1; cnt <= 10; cnt++) { 
@@ -98,6 +129,25 @@ void ex10() {
     }
 }
 
+#include <opengl>
+/// GL source code
+void glutKeyboardFunc(void (*pf)(unsigned char, int, int)) { // int*
+    // ...
+    // drawing ...
+    // shading ...
+    // keyboard handling
+
+    cin >> key >> x >> y;
+    (*pf)(key, x, y); // keyboardCallback(key, x, y);
+    // ..
+}
+
+
+void draw_board(char* arr) { // arr = board;
+    cout << arr[0] << endl;
+} 
 int main() {
-    ex1_forloop();
+    glutKeyboardFunc(keyboardCallback);
+    char board[9] = "123456789";
+    draw_board(board);
 }
