@@ -40,6 +40,7 @@ int main() {
             char restart;
             cin >> restart;
             if (restart != 'y' && restart != 'Y') {
+                // TODO:
                 destroy_board(&b);
                 break;
             }

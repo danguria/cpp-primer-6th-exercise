@@ -1,9 +1,11 @@
 #include <iostream>
 using namespace std;
 
+
 double harmonic_mean(double x, double y) {
     return 2.0 * x * y / (x + y);
 }
+
 void ex01() {
     double x, y;
     cout << "Enter two numbers: ";
@@ -91,16 +93,25 @@ void ex04() {
     cout << "probability : " << probability(47, 5) * probability(27, 1) << endl;
 }
 
+int sum(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) 
+        sum += i;
+    return sum;
+}
 
 int factorial(const int num) {
     if (num == 1) return num;
     return num * factorial(num - 1);
 }
 
+
+
 void ex05() {
     int n;
     cout << "Enter number(negative number or zer to exit) : ";
     cin >> n;
+
     while (n > 0) {
         cout << "Factorial number of " << n << " is " << factorial(n) << endl;
     
