@@ -8,7 +8,7 @@ void init_board(ttt* b) {
     b->board = new char*[b->size];
     for (int i = 0; i < 3; i++)
         b->board[i] = new char[b->size];
-        
+
     for (int row = 0, num = 1; row < b->size; row++) {
         for (int col = 0; col < b->size; col++) {
             b->board[row][col] = '0' + num++;
