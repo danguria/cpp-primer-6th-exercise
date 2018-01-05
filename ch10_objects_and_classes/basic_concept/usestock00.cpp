@@ -8,9 +8,7 @@ int main()
 	Stock s;
 	
 	s.acquire("NanoSmart", 20, 12.50);
-	s.show();
-	
-	s.buy(15, 18.125);
+	//s.company = "google";
 	s.show();
 
 	s.sell(400, 20.00);

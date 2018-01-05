@@ -2,6 +2,7 @@
 #include "ttt.h"
 using namespace std;
 
+ttt b = { ...};
 void init_board(ttt* b) {
     b->size = 3;
     b->turn = 1;
