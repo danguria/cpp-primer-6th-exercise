@@ -1,8 +1,11 @@
 #ifndef TTT_H_
 #define TTT_H_
+
+enum MARK { P1 = 'O', P2 = 'X' };
+
 struct ttt {
     int size;
-    char** board;
+    int** board;
     int turn;
 };
 

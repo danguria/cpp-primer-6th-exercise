@@ -5,11 +5,13 @@ using namespace std;
 int main() {
 
     while (1) {
+        char marks[3] = {-3, P1, P2};
         ttt b;
         
+        system("clear");
+        draw_title();
         init_board(&b);
-
-        char marks[3] = {'?', 'O', 'X'};
+        
         system("clear");
         draw_title();
         draw_board(&b);
@@ -40,7 +42,6 @@ int main() {
             char restart;
             cin >> restart;
             if (restart != 'y' && restart != 'Y') {
-                // TODO:
                 destroy_board(&b);
                 break;
             }
